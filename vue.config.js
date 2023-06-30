@@ -14,6 +14,23 @@ module.exports = defineConfig({
     open: true,
 
     // 是否开启https
-    https: false
+    https: false,
+
+    // 配置跨域
+    proxy:{
+      // 代理名称
+      "/dev-api":{
+        // 跨域地址
+        target: "",
+
+        // 开启跨域
+        changeOrigin: true,
+
+        // 重写路径
+        pathRewrite:{
+          "^/dev-api": ''
+        }
+      }
+    }
   }
 });
