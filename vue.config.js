@@ -17,18 +17,18 @@ module.exports = defineConfig({
     https: false,
 
     // 配置跨域
-    proxy:{
+    proxy: {
       // 代理名称
-      "/dev-api":{
+      [process.env.VUE_APP_BASE_API]: {
         // 跨域地址
-        target: "",
+        target: VUE_APP_SERVICE_URL,
 
         // 开启跨域
         changeOrigin: true,
 
         // 重写路径
-        pathRewrite:{
-          "^/dev-api": ''
+        pathRewrite: {
+          ["^" + process.env.VUE_APP_BASE_API]: ''
         }
       }
     }
